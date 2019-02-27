@@ -1,0 +1,6 @@
+# On terminal
+sqlite testDB.db
+
+# On prompt
+sqlite>.databases	# list available databases
+sqlite>.quit		# get out
