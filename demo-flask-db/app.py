@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 import datetime
 import os
 import sqlite3
@@ -85,8 +87,14 @@ def show_records():
     res = "<br>"
     for entry in query_db(""" SELECT * FROM connections """):
         print(entry)
-        res = res + str(entry) + "<br>"
+        print(type(entry[0]))
+        res = res + entry[0].decode('unicode-escape') + "<br>"
     return res
+
+@app.route('/emoji')
+def show_emoji():
+    print(type("\N{winking face}"))
+    return "\N{winking face}"
 
 # Initialization stuff
 if __name__ == '__main__':
